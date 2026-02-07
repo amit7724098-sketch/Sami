@@ -5,6 +5,9 @@
 <title>For Simran ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
     body {
         margin: 0;
@@ -24,13 +27,21 @@
         padding: 30px;
         border-radius: 20px;
         width: 90%;
-        max-width: 350px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        max-width: 360px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         animation: fadeIn 1s ease;
     }
 
-    h1, h2 {
+    h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 42px;
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+
+    h2 {
         margin-bottom: 20px;
+        text-shadow: 0 0 8px rgba(255,255,255,0.6);
     }
 
     button {
@@ -50,19 +61,37 @@
         background: #ff1e56;
     }
 
-    .shake {
-        animation: shake 0.4s;
-    }
+    .shake { animation: shake 0.4s; }
 
     img {
         width: 200px;
         border-radius: 20px;
         margin-top: 20px;
         animation: zoomIn 1.5s ease;
+        box-shadow: 0 0 20px rgba(255,255,255,0.6);
     }
 
-    .hidden {
-        display: none;
+    .hidden { display: none; }
+
+    /* Happy Propose Day animation */
+    .typing {
+        font-family: 'Great Vibes', cursive;
+        font-size: 40px;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid white;
+        animation: typing 3s steps(30,end), blink 0.7s infinite;
+        text-shadow: 0 0 12px #fff, 0 0 25px #ff4d6d;
+        margin-top: 15px;
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent }
     }
 
     @keyframes shake {
@@ -92,14 +121,8 @@
     }
 
     @keyframes floatUp {
-        from {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateY(-120vh);
-            opacity: 0;
-        }
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(-120vh); opacity: 0; }
     }
 </style>
 </head>
@@ -130,10 +153,17 @@
 
 <div class="card hidden" id="step5">
     <h2>Amit ❤️ Simran</h2>
+    <div class="typing">Happy Propose Day 💍❤️</div>
     <img src="https://ibb.co/G41Y0vQx" alt="Love Photo">
 </div>
 
 <script>
+    const step1 = document.getElementById("step1");
+    const step2 = document.getElementById("step2");
+    const step3 = document.getElementById("step3");
+    const step4 = document.getElementById("step4");
+    const step5 = document.getElementById("step5");
+
     function goStep2() {
         step1.classList.add("hidden");
         step2.classList.remove("hidden");
