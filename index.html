@@ -2,175 +2,177 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Happy Hug Day Simran</title>
+<title>For Simran 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 body{
     margin:0;
-    font-family:'Poppins', sans-serif;
-    background:linear-gradient(135deg,#ffd6e0,#fff0f5);
+    font-family:'Poppins',sans-serif;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
     overflow:hidden;
+    background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fad0c4,#ffdde1);
+    background-size:400% 400%;
+    animation:gradientBG 10s ease infinite;
 }
 
-/* Floating Hearts */
-.heart{
-    position:absolute;
-    color:#ff4d6d;
-    animation: float 6s linear infinite;
-}
-@keyframes float{
-    0%{transform:translateY(100vh); opacity:1;}
-    100%{transform:translateY(-10vh); opacity:0;}
-}
-
-/* Fireworks */
-.firework{
-    position:absolute;
-    width:6px;
-    height:6px;
-    background:#ff4d6d;
-    border-radius:50%;
-    animation: explode 1s ease-out forwards;
-}
-@keyframes explode{
-    from{transform:translate(0,0); opacity:1;}
-    to{
-        transform:translate(var(--x),var(--y));
-        opacity:0;
-    }
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
 .container{
-    background:white;
-    width:360px;
-    padding:30px;
-    text-align:center;
+    width:380px;
+    padding:35px;
     border-radius:25px;
-    box-shadow:0 15px 40px rgba(255,105,135,0.3);
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.25);
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    text-align:center;
     position:relative;
-    z-index:2;
-}
-
-.title{
-    font-family:'Pacifico', cursive;
-    font-size:35px;
-    background:linear-gradient(45deg,#ff4d6d,#ff758f);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.hug{
-    font-size:85px;
-    animation:bounce 1s infinite alternate;
-}
-@keyframes bounce{
-    from{transform:scale(1);}
-    to{transform:scale(1.15);}
-}
-
-.text{
-    font-size:18px;
-    margin:15px 0;
-    line-height:1.6;
-    min-height:60px;
-}
-
-.name{
-    font-family:'Pacifico', cursive;
-    font-size:24px;
-    color:#e63946;
-}
-
-button{
-    background:linear-gradient(45deg,#ff4d6d,#ff758f);
-    color:white;
-    border:none;
-    padding:12px 28px;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-    margin-top:15px;
-    transition:0.3s;
-}
-button:hover{
-    transform:scale(1.08);
+    overflow:hidden;
 }
 
 .screen{
     display:none;
-    animation:fade 0.8s ease-in-out;
+    animation:slide 0.8s ease forwards;
 }
-@keyframes fade{
-    from{opacity:0; transform:scale(0.9);}
-    to{opacity:1; transform:scale(1);}
+
+@keyframes slide{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
+
 .active{
     display:block;
 }
+
+.title{
+    font-family:'Great Vibes',cursive;
+    font-size:40px;
+    color:#fff;
+    text-shadow:0 3px 10px rgba(0,0,0,0.3);
+}
+
+.text{
+    font-size:17px;
+    margin:20px 0;
+    min-height:70px;
+    color:#fff;
+}
+
+.name{
+    font-family:'Great Vibes',cursive;
+    font-size:28px;
+    color:#fff;
+}
+
+button{
+    padding:12px 30px;
+    border:none;
+    border-radius:40px;
+    font-size:16px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#ff4d6d,#ff758f);
+    color:white;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 10px 25px rgba(255,77,109,0.6);
+}
+
+.cursor{
+    display:inline-block;
+    width:2px;
+    background:white;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    0%,50%,100%{opacity:1;}
+    25%,75%{opacity:0;}
+}
+
+/* Heart burst */
+.heart{
+    position:absolute;
+    color:#fff;
+    animation:burst 1s ease forwards;
+}
+
+@keyframes burst{
+    from{opacity:1; transform:scale(0);}
+    to{opacity:0; transform:scale(2) translateY(-100px);}
+}
+
+.big-hug{
+    font-size:90px;
+    animation:bounce 1s infinite alternate;
+}
+
+@keyframes bounce{
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
+}
+
 </style>
 </head>
-
 <body>
-
-<script>
-// Floating hearts
-for(let i=0;i<25;i++){
-    let heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(3+Math.random()*3)+"s";
-    heart.style.fontSize=(15+Math.random()*25)+"px";
-    document.body.appendChild(heart);
-}
-</script>
 
 <div class="container">
 
+<!-- Screen 1 -->
 <div id="screen1" class="screen active">
-    <div class="hug">🤗</div>
-    <div class="title">Hug</div>
-    <p class="text">Almost there... 💕</p>
-    <button onclick="next(2)">Hug Now 🤍</button>
+    <div class="big-hug">🤗</div>
+    <div class="title">For Simran</div>
+    <p class="text">I have something special for you today... 💕</p>
+    <button onclick="next(2)">Open It 💌</button>
 </div>
 
+<!-- Screen 2 -->
 <div id="screen2" class="screen">
-    <div class="hug">🐻❤️</div>
-    <p class="text" id="typing1"></p>
+    <div class="title">Simran 💖</div>
+    <p class="text" id="text1"></p>
     <button onclick="next(3)">Come Closer ✨</button>
 </div>
 
+<!-- Screen 3 -->
 <div id="screen3" class="screen">
-    <div class="hug">🫂</div>
-    <p class="text" id="typing2"></p>
-    <button onclick="next(4)">Read This 💌</button>
+    <div class="big-hug">🫂</div>
+    <p class="text" id="text2"></p>
+    <button onclick="next(4)">Feel This ❤️</button>
 </div>
 
+<!-- Screen 4 -->
 <div id="screen4" class="screen">
+    <div class="title">Happy Hug Day 💞</div>
     <p class="text">
-        <span class="name">To You, Simran</span> 🫂❤️😊<br><br>
-        Your hug is the only place where I feel at home.<br><br>
-        <span class="title">Happy Hug Day</span> ❤️
+        Simran, your hug is my safest place.<br><br>
+        When you hug me, the world feels calm.<br><br>
+        I can't wait for the day<br>
+        when this screen hug becomes real. ❤️
     </p>
-    <button onclick="next(1)">Replay 🔁</button>
+    <button onclick="restart()">Replay 🔁</button>
 </div>
 
 </div>
 
 <script>
 
-function typeEffect(element, text, speed){
+function typeWriter(element,text,speed){
     element.innerHTML="";
     let i=0;
     function typing(){
         if(i<text.length){
-            element.innerHTML+=text.charAt(i);
+            element.innerHTML += text.charAt(i);
             i++;
             setTimeout(typing,speed);
         }
@@ -178,16 +180,15 @@ function typeEffect(element, text, speed){
     typing();
 }
 
-function fireworks(){
-    for(let i=0;i<30;i++){
-        let fire=document.createElement("div");
-        fire.className="firework";
-        fire.style.left="50%";
-        fire.style.top="50%";
-        fire.style.setProperty('--x',(Math.random()*200-100)+'px');
-        fire.style.setProperty('--y',(Math.random()*200-100)+'px');
-        document.body.appendChild(fire);
-        setTimeout(()=>fire.remove(),1000);
+function heartBurst(){
+    for(let i=0;i<15;i++){
+        let heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"%";
+        heart.style.top="70%";
+        document.querySelector(".container").appendChild(heart);
+        setTimeout(()=>heart.remove(),1000);
     }
 }
 
@@ -197,24 +198,29 @@ function next(n){
     document.getElementById("screen"+n).classList.add("active");
 
     if(n===2){
-        typeEffect(
-            document.getElementById("typing1"),
-            "Sometimes all I want is to hold you close, Simran 💙❤️",
+        typeWriter(
+            document.getElementById("text1"),
+            "Sometimes all I want is to hold you close, Simran... and never let you go. 💗",
             40
         );
     }
 
     if(n===3){
-        typeEffect(
-            document.getElementById("typing2"),
-            "This hug is from me to you ❤️ Whenever you feel low, remember I'm always with you.",
+        typeWriter(
+            document.getElementById("text2"),
+            "Whenever you feel low, imagine this hug from me wrapping around you tightly... reminding you that you are loved. 🫶",
             40
         );
+        heartBurst();
     }
 
     if(n===4){
-        fireworks();
+        heartBurst();
     }
+}
+
+function restart(){
+    next(1);
 }
 
 </script>
