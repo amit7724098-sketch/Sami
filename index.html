@@ -1,247 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>For Simran ❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Hug Day Simran</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body{
-  margin:0;
-  height:100vh;
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  color:#fff;
-  text-align:center;
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#ffd6e0,#fff0f5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
 }
 
-.card{
-  background:rgba(255,255,255,.18);
-  padding:30px;
-  border-radius:25px;
-  width:90%;
-  max-width:380px;
-  box-shadow:0 15px 35px rgba(0,0,0,.3);
-  animation:fadeIn 1s ease;
-}
-
-.hidden{display:none}
-
-h1{
-  font-family:'Great Vibes',cursive;
-  font-size:42px;
-  margin-bottom:10px;
-  text-shadow:0 0 12px rgba(255,255,255,.9);
-}
-
-h2{
-  margin-bottom:18px;
-  text-shadow:0 0 8px rgba(255,255,255,.7);
-}
-
-button{
-  padding:12px 24px;
-  margin:10px;
-  border:none;
-  border-radius:25px;
-  font-size:16px;
-  cursor:pointer;
-  background:#ff4d6d;
-  color:#fff;
-  transition:.3s;
-}
-button:hover{
-  transform:scale(1.1);
-  background:#ff1e56;
-}
-
-.shake{animation:shake .4s}
-
-@keyframes shake{
-  0%{transform:translateX(0)}
-  25%{transform:translateX(-5px)}
-  50%{transform:translateX(5px)}
-  75%{transform:translateX(-5px)}
-  100%{transform:translateX(0)}
-}
-
-.typing{
-  font-family:'Great Vibes',cursive;
-  font-size:36px;
-  white-space:nowrap;
-  overflow:hidden;
-  border-right:3px solid #fff;
-  animation:typing 3.5s steps(35,end), blink .7s infinite;
-  margin-top:10px;
-  text-shadow:0 0 12px #fff,0 0 25px #ff4d6d;
-}
-
-@keyframes typing{from{width:0}to{width:100%}}
-@keyframes blink{50%{border-color:transparent}}
-
-img{
-  width:200px;
-  border-radius:18px;
-  margin-top:18px;
-  animation:zoomIn 1.3s ease;
-  box-shadow:0 0 20px rgba(255,255,255,.6);
-}
-
-@keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1}}
-@keyframes zoomIn{from{opacity:0;transform:scale(0)}to{opacity:1}}
-
+/* Floating Hearts */
 .heart{
-  position:absolute;
-  bottom:-20px;
-  font-size:18px;
-  animation:floatUp 6s linear infinite;
-  opacity:.8;
+    position:absolute;
+    color:#ff4d6d;
+    animation: float 6s linear infinite;
+}
+@keyframes float{
+    0%{transform:translateY(100vh); opacity:1;}
+    100%{transform:translateY(-10vh); opacity:0;}
 }
 
-@keyframes floatUp{
-  to{transform:translateY(-120vh);opacity:0}
+/* Fireworks */
+.firework{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#ff4d6d;
+    border-radius:50%;
+    animation: explode 1s ease-out forwards;
+}
+@keyframes explode{
+    from{transform:translate(0,0); opacity:1;}
+    to{
+        transform:translate(var(--x),var(--y));
+        opacity:0;
+    }
 }
 
-/* ===== Final Page Styles ===== */
-.names{
-  font-size:26px;
-  font-weight:600;
-  margin-bottom:15px;
-  animation:heartbeat 1.6s infinite;
+.container{
+    background:white;
+    width:360px;
+    padding:30px;
+    text-align:center;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(255,105,135,0.3);
+    position:relative;
+    z-index:2;
 }
 
 .title{
-  font-family:'Great Vibes',cursive;
-  font-size:42px;
-  text-shadow:0 0 12px #fff,0 0 30px #ff6b81;
-  animation:glow 2s infinite alternate;
+    font-family:'Pacifico', cursive;
+    font-size:35px;
+    background:linear-gradient(45deg,#ff4d6d,#ff758f);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.ring{
-  animation:pop 1.5s infinite;
-  display:inline-block;
+.hug{
+    font-size:85px;
+    animation:bounce 1s infinite alternate;
+}
+@keyframes bounce{
+    from{transform:scale(1);}
+    to{transform:scale(1.15);}
 }
 
-.photo-box{
-  margin-top:18px;
-  background:rgba(255,255,255,.35);
-  border-radius:18px;
-  padding:12px;
-  display:inline-block;
+.text{
+    font-size:18px;
+    margin:15px 0;
+    line-height:1.6;
+    min-height:60px;
 }
 
-@keyframes glow{
-  from{text-shadow:0 0 12px #fff}
-  to{text-shadow:0 0 20px #fff,0 0 40px #ff6b81}
+.name{
+    font-family:'Pacifico', cursive;
+    font-size:24px;
+    color:#e63946;
 }
-@keyframes pop{
-  50%{transform:scale(1.25)}
+
+button{
+    background:linear-gradient(45deg,#ff4d6d,#ff758f);
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:15px;
+    transition:0.3s;
 }
-@keyframes heartbeat{
-  25%{transform:scale(1.08)}
-  60%{transform:scale(1.12)}
+button:hover{
+    transform:scale(1.08);
+}
+
+.screen{
+    display:none;
+    animation:fade 0.8s ease-in-out;
+}
+@keyframes fade{
+    from{opacity:0; transform:scale(0.9);}
+    to{opacity:1; transform:scale(1);}
+}
+.active{
+    display:block;
 }
 </style>
 </head>
 
 <body>
 
-<!-- STEP 1 -->
-<div class="card" id="step1">
-  <h2>Do you know me? 💭</h2>
-  <button onclick="goStep2()">Yes</button>
-  <button onclick="goStep2()">Obviously 😌</button>
+<script>
+// Floating hearts
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*3)+"s";
+    heart.style.fontSize=(15+Math.random()*25)+"px";
+    document.body.appendChild(heart);
+}
+</script>
+
+<div class="container">
+
+<div id="screen1" class="screen active">
+    <div class="hug">🤗</div>
+    <div class="title">Hug</div>
+    <p class="text">Almost there... 💕</p>
+    <button onclick="next(2)">Hug Now 🤍</button>
 </div>
 
-<!-- STEP 2 -->
-<div class="card hidden" id="step2">
-  <h2>Do you love me? ❤️</h2>
-  <button onclick="yesLove()">Yes</button>
-  <button id="noBtn" onclick="shakeNo()">No 😄</button>
+<div id="screen2" class="screen">
+    <div class="hug">🐻❤️</div>
+    <p class="text" id="typing1"></p>
+    <button onclick="next(3)">Come Closer ✨</button>
 </div>
 
-<!-- STEP 3 -->
-<div class="card hidden" id="step3">
-  <h1>I'm going to propose you 💍</h1>
-  <h2>Simran ❤️</h2>
+<div id="screen3" class="screen">
+    <div class="hug">🫂</div>
+    <p class="text" id="typing2"></p>
+    <button onclick="next(4)">Read This 💌</button>
 </div>
 
-<!-- STEP 4 -->
-<div class="card hidden" id="step4">
-  <h1>I LOVE YOU 💖</h1>
-  <h2>SIMMY 😘</h2>
+<div id="screen4" class="screen">
+    <p class="text">
+        <span class="name">To You, Simran</span> 🫂❤️😊<br><br>
+        Your hug is the only place where I feel at home.<br><br>
+        <span class="title">Happy Hug Day</span> ❤️
+    </p>
+    <button onclick="next(1)">Replay 🔁</button>
 </div>
 
-<!-- STEP 5 FINAL -->
-<div class="card hidden" id="step5">
-  <div class="names">Amit ❤️ Simran</div>
-  <div class="title">Happy Propose Day <span class="ring">💍</span></div>
-  <div class="typing">Will you be mine forever, Simran? ❤️</div>
-
-  <div class="photo-box">
-    <img src="https://i.ibb.co/G41Y0vQx/love.jpg" alt="Love Photo">
-  </div>
 </div>
-
-<!-- Music -->
-<audio id="bgm" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c9b6b7b3b.mp3" type="audio/mpeg">
-</audio>
 
 <script>
-const step1=document.getElementById("step1");
-const step2=document.getElementById("step2");
-const step3=document.getElementById("step3");
-const step4=document.getElementById("step4");
-const step5=document.getElementById("step5");
 
-function goStep2(){
-  step1.classList.add("hidden");
-  step2.classList.remove("hidden");
+function typeEffect(element, text, speed){
+    element.innerHTML="";
+    let i=0;
+    function typing(){
+        if(i<text.length){
+            element.innerHTML+=text.charAt(i);
+            i++;
+            setTimeout(typing,speed);
+        }
+    }
+    typing();
 }
 
-function shakeNo(){
-  const b=document.getElementById("noBtn");
-  b.classList.add("shake");
-  setTimeout(()=>b.classList.remove("shake"),400);
+function fireworks(){
+    for(let i=0;i<30;i++){
+        let fire=document.createElement("div");
+        fire.className="firework";
+        fire.style.left="50%";
+        fire.style.top="50%";
+        fire.style.setProperty('--x',(Math.random()*200-100)+'px');
+        fire.style.setProperty('--y',(Math.random()*200-100)+'px');
+        document.body.appendChild(fire);
+        setTimeout(()=>fire.remove(),1000);
+    }
 }
 
-function yesLove(){
-  step2.classList.add("hidden");
-  step3.classList.remove("hidden");
+function next(n){
+    let screens=document.querySelectorAll(".screen");
+    screens.forEach(s=>s.classList.remove("active"));
+    document.getElementById("screen"+n).classList.add("active");
 
-  setTimeout(()=>{
-    step3.classList.add("hidden");
-    step4.classList.remove("hidden");
-  },5000);
+    if(n===2){
+        typeEffect(
+            document.getElementById("typing1"),
+            "Sometimes all I want is to hold you close, Simran 💙❤️",
+            40
+        );
+    }
 
-  setTimeout(()=>{
-    step4.classList.add("hidden");
-    step5.classList.remove("hidden");
-  },8000);
+    if(n===3){
+        typeEffect(
+            document.getElementById("typing2"),
+            "This hug is from me to you ❤️ Whenever you feel low, remember I'm always with you.",
+            40
+        );
+    }
+
+    if(n===4){
+        fireworks();
+    }
 }
 
-/* music on first tap */
-const bgm=document.getElementById("bgm");
-document.addEventListener("click",()=>{bgm.play().catch(()=>{})},{once:true});
-
-/* floating hearts */
-setInterval(()=>{
-  const h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML=Math.random()>0.5?"❤️":"🌹";
-  h.style.left=Math.random()*100+"vw";
-  h.style.fontSize=(15+Math.random()*20)+"px";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),6000);
-},400);
 </script>
 
 </body>
