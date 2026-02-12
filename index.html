@@ -2,120 +2,86 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For Simran 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Simran ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 body{
     margin:0;
-    font-family:'Poppins',sans-serif;
     height:100vh;
+    overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
-    background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fad0c4,#ffdde1);
-    background-size:400% 400%;
-    animation:gradientBG 10s ease infinite;
+    font-family:'Poppins',sans-serif;
+    background:radial-gradient(circle at top,#1a0026,#000814);
+    color:white;
 }
 
-@keyframes gradientBG{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+/* Floating stars */
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    animation:twinkle 3s infinite alternate;
+}
+@keyframes twinkle{
+    from{opacity:0.3;}
+    to{opacity:1;}
 }
 
 .container{
-    width:380px;
-    padding:35px;
+    width:100%;
+    max-width:420px;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+}
+
+.card{
+    width:100%;
+    padding:40px 25px;
     border-radius:25px;
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,0.25);
-    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    box-shadow:0 0 40px rgba(255,0,150,0.3);
     text-align:center;
     position:relative;
-    overflow:hidden;
+    animation:fade 1s ease;
 }
 
-.screen{
-    display:none;
-    animation:slide 0.8s ease forwards;
+@keyframes fade{
+    from{opacity:0; transform:scale(0.95);}
+    to{opacity:1; transform:scale(1);}
 }
 
-@keyframes slide{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-.active{
-    display:block;
-}
+.screen{ display:none; }
+.active{ display:block; }
 
 .title{
     font-family:'Great Vibes',cursive;
-    font-size:40px;
-    color:#fff;
-    text-shadow:0 3px 10px rgba(0,0,0,0.3);
+    font-size:42px;
+    background:linear-gradient(45deg,#ff4d6d,#ff99c8);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 20px rgba(255,0,150,0.6);
 }
 
 .text{
-    font-size:17px;
     margin:20px 0;
-    min-height:70px;
-    color:#fff;
+    font-size:17px;
+    line-height:1.6;
+    min-height:80px;
 }
 
-.name{
-    font-family:'Great Vibes',cursive;
-    font-size:28px;
-    color:#fff;
-}
-
-button{
-    padding:12px 30px;
-    border:none;
-    border-radius:40px;
-    font-size:16px;
-    cursor:pointer;
-    background:linear-gradient(45deg,#ff4d6d,#ff758f);
-    color:white;
-    transition:0.3s;
-}
-
-button:hover{
-    transform:scale(1.1);
-    box-shadow:0 10px 25px rgba(255,77,109,0.6);
-}
-
-.cursor{
-    display:inline-block;
-    width:2px;
-    background:white;
-    animation:blink 1s infinite;
-}
-
-@keyframes blink{
-    0%,50%,100%{opacity:1;}
-    25%,75%{opacity:0;}
-}
-
-/* Heart burst */
-.heart{
-    position:absolute;
-    color:#fff;
-    animation:burst 1s ease forwards;
-}
-
-@keyframes burst{
-    from{opacity:1; transform:scale(0);}
-    to{opacity:0; transform:scale(2) translateY(-100px);}
-}
-
-.big-hug{
+.big{
     font-size:90px;
-    animation:bounce 1s infinite alternate;
+    animation:bounce 1.2s infinite alternate;
 }
 
 @keyframes bounce{
@@ -123,106 +89,114 @@ button:hover{
     to{transform:scale(1.1);}
 }
 
+button{
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff4d6d,#ff0080);
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px #ff4d6d;
+}
+
+/* Neon heart pulse */
+.pulse{
+    animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+    0%{text-shadow:0 0 10px #ff4d6d;}
+    50%{text-shadow:0 0 30px #ff99c8;}
+    100%{text-shadow:0 0 10px #ff4d6d;}
+}
+
 </style>
 </head>
 <body>
 
+<script>
+/* Generate stars */
+for(let i=0;i<100;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDuration=(2+Math.random()*3)+"s";
+    document.body.appendChild(star);
+}
+</script>
+
 <div class="container">
+<div class="card">
 
 <!-- Screen 1 -->
-<div id="screen1" class="screen active">
-    <div class="big-hug">🤗</div>
-    <div class="title">For Simran</div>
-    <p class="text">I have something special for you today... 💕</p>
-    <button onclick="next(2)">Open It 💌</button>
+<div id="s1" class="screen active">
+    <div class="big">🌙</div>
+    <div class="title">Simran</div>
+    <p class="text">Tonight, I want to send you something more than just words...</p>
+    <button onclick="next(2)">Open My Heart ❤️</button>
 </div>
 
 <!-- Screen 2 -->
-<div id="screen2" class="screen">
-    <div class="title">Simran 💖</div>
-    <p class="text" id="text1"></p>
+<div id="s2" class="screen">
+    <div class="big pulse">🤗</div>
+    <p class="text" id="t1"></p>
     <button onclick="next(3)">Come Closer ✨</button>
 </div>
 
 <!-- Screen 3 -->
-<div id="screen3" class="screen">
-    <div class="big-hug">🫂</div>
-    <p class="text" id="text2"></p>
-    <button onclick="next(4)">Feel This ❤️</button>
+<div id="s3" class="screen">
+    <div class="big">🫂</div>
+    <p class="text" id="t2"></p>
+    <button onclick="next(4)">Feel It 💞</button>
 </div>
 
 <!-- Screen 4 -->
-<div id="screen4" class="screen">
-    <div class="title">Happy Hug Day 💞</div>
+<div id="s4" class="screen">
+    <div class="title">Happy Hug Day 💖</div>
     <p class="text">
-        Simran, your hug is my safest place.<br><br>
-        When you hug me, the world feels calm.<br><br>
-        I can't wait for the day<br>
-        when this screen hug becomes real. ❤️
+        Simran...<br><br>
+        If I could, I would pause this moment,<br>
+        wrap my arms around you,<br>
+        and let the world disappear.<br><br>
+        Until then, this hug is yours. 🫂❤️
     </p>
-    <button onclick="restart()">Replay 🔁</button>
+    <button onclick="next(1)">Replay 🔁</button>
 </div>
 
+</div>
 </div>
 
 <script>
-
-function typeWriter(element,text,speed){
+function typeWriter(id,text){
+    let element=document.getElementById(id);
     element.innerHTML="";
     let i=0;
     function typing(){
         if(i<text.length){
-            element.innerHTML += text.charAt(i);
+            element.innerHTML+=text.charAt(i);
             i++;
-            setTimeout(typing,speed);
+            setTimeout(typing,40);
         }
     }
     typing();
 }
 
-function heartBurst(){
-    for(let i=0;i<15;i++){
-        let heart=document.createElement("div");
-        heart.className="heart";
-        heart.innerHTML="❤️";
-        heart.style.left=Math.random()*100+"%";
-        heart.style.top="70%";
-        document.querySelector(".container").appendChild(heart);
-        setTimeout(()=>heart.remove(),1000);
-    }
-}
-
 function next(n){
-    let screens=document.querySelectorAll(".screen");
-    screens.forEach(s=>s.classList.remove("active"));
-    document.getElementById("screen"+n).classList.add("active");
+    document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+    document.getElementById("s"+n).classList.add("active");
 
     if(n===2){
-        typeWriter(
-            document.getElementById("text1"),
-            "Sometimes all I want is to hold you close, Simran... and never let you go. 💗",
-            40
-        );
+        typeWriter("t1","Sometimes I just wish I could hold you close, Simran... and protect you from every worry. 💕");
     }
-
     if(n===3){
-        typeWriter(
-            document.getElementById("text2"),
-            "Whenever you feel low, imagine this hug from me wrapping around you tightly... reminding you that you are loved. 🫶",
-            40
-        );
-        heartBurst();
-    }
-
-    if(n===4){
-        heartBurst();
+        typeWriter("t2","Whenever you feel alone, imagine me standing behind you, wrapping you in the warmest hug ever. 🫶");
     }
 }
-
-function restart(){
-    next(1);
-}
-
 </script>
 
 </body>
