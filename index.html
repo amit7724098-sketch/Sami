@@ -15,8 +15,8 @@ body {
     text-align: center;
 }
 
-/* Start Screen */
-#start {
+/* Cinematic Intro */
+#intro {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -26,27 +26,64 @@ body {
     align-items: center;
     font-size: 2em;
     cursor: pointer;
+    animation: pulse 2s infinite;
 }
 
-/* Slideshow */
+@keyframes pulse {
+    0%,100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Slides */
 .slide {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1.5s;
+    transition: opacity 2s;
 }
 
-/* Typing Message */
+/* Typing message */
 #message {
     position: absolute;
-    bottom: 15%;
+    bottom: 18%;
     width: 100%;
     font-size: 1.8em;
+    border-right: 3px solid white;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid white;
+}
+
+/* Counter */
+#counter {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+/* Final Screen */
+#final {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    background: #ff4e8b;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
 }
 
 /* Hearts */
@@ -70,6 +107,7 @@ body {
     border-radius: 50%;
     animation: explode 1s ease-out forwards;
 }
+
 @keyframes explode {
     to { transform: scale(20); opacity: 0; }
 }
@@ -78,41 +116,60 @@ body {
 
 <body>
 
-<div id="start" onclick="startLove()">Tap to Begin ❤️</div>
+<div id="intro" onclick="startStory()">Tap to Begin Our Story ❤️</div>
 
 <img class="slide" src="couple.jpg">
 <img class="slide" src="simran.jpg">
 <img class="slide" src="note.jpg">
 
+<div id="counter"></div>
 <div id="message"></div>
+
+<div id="final">
+    <h1>Simran ❤️</h1>
+    <h2>Will you stay with me forever?</h2>
+    <button onclick="alert('You just made me the happiest person ❤️')">YES ❤️</button>
+</div>
 
 <script>
 const slides = document.querySelectorAll(".slide");
 let index = 0;
 
-const text = "Simran ❤️ You are my today and all my tomorrows...";
+const text = "You are my today, my tomorrow, and my forever...";
 let i = 0;
 
-function startLove() {
-    document.getElementById("start").style.display = "none";
+/* Love Counter (change date) */
+const startDate = new Date("2024-01-01");
+
+function updateCounter() {
+    const now = new Date();
+    const diff = Math.floor((now - startDate) / (1000*60*60*24));
+    document.getElementById("counter").innerText =
+        "Together for " + diff + " beautiful days ❤️";
+}
+setInterval(updateCounter, 1000);
+
+function startStory() {
+    document.getElementById("intro").style.display = "none";
     showSlides();
     typeText();
     setInterval(createHeart, 300);
-    setTimeout(startFireworks, 9000);
+    setTimeout(startFireworks, 10000);
+    setTimeout(showFinal, 14000);
 }
 
 function showSlides() {
     slides.forEach(s => s.style.opacity = 0);
     slides[index].style.opacity = 1;
     index = (index + 1) % slides.length;
-    setTimeout(showSlides, 3000);
+    setTimeout(showSlides, 3500);
 }
 
 function typeText() {
     if (i < text.length) {
         document.getElementById("message").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeText, 80);
+        setTimeout(typeText, 70);
     }
 }
 
@@ -137,6 +194,11 @@ function startFireworks() {
         document.body.appendChild(fw);
         setTimeout(() => fw.remove(), 1000);
     }, 300);
+}
+
+/* Final screen */
+function showFinal() {
+    document.getElementById("final").style.display = "flex";
 }
 </script>
 
