@@ -3,97 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Valentine's Day ❤️</title>
+<title>Simran ❤️ Amit</title>
 
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: linear-gradient(135deg, #ff4e8b, #ff9a9e);
-        overflow: hidden;
-        font-family: 'Segoe UI', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-    }
+body {
+    margin: 0;
+    background: black;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+}
 
-    .container {
-        animation: fadeIn 3s ease-in-out;
-    }
+/* Start Screen */
+#start {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ff4e8b, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+}
 
-    h1 {
-        font-size: 3em;
-        animation: glow 2s infinite alternate;
-    }
+/* Slideshow */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
 
-    p {
-        font-size: 1.3em;
-        max-width: 500px;
-        margin: 20px auto;
-        line-height: 1.6;
-    }
+/* Typing Message */
+#message {
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    font-size: 1.8em;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white;
+}
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.8); }
-        to { opacity: 1; transform: scale(1); }
-    }
+/* Hearts */
+.heart {
+    position: absolute;
+    bottom: -10px;
+    color: #ff4e8b;
+    animation: floatUp 6s linear infinite;
+}
 
-    @keyframes glow {
-        from { text-shadow: 0 0 10px white; }
-        to { text-shadow: 0 0 25px white, 0 0 40px pink; }
-    }
+@keyframes floatUp {
+    to { transform: translateY(-110vh); opacity: 0; }
+}
 
-    /* Floating Hearts */
-    .heart {
-        position: absolute;
-        bottom: -20px;
-        font-size: 24px;
-        animation: float 6s linear infinite;
-    }
-
-    @keyframes float {
-        0% {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-100vh) scale(1.5);
-            opacity: 0;
-        }
-    }
+/* Fireworks */
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+@keyframes explode {
+    to { transform: scale(20); opacity: 0; }
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Happy Valentine's Day ❤️</h1>
-    <p>
-        From the moment you came into my life,  
-        everything became more beautiful.  
-        Your smile is my peace, your laugh is my favorite sound.  
-        I promise to stand by you, support you, and love you — always.  
-    </p>
-    <h2>Forever Yours ❤️</h2>
-</div>
+<div id="start" onclick="startLove()">Tap to Begin ❤️</div>
+
+<img class="slide" src="couple.jpg">
+<img class="slide" src="simran.jpg">
+<img class="slide" src="note.jpg">
+
+<div id="message"></div>
 
 <script>
-    function createHeart() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-        document.body.appendChild(heart);
+const slides = document.querySelectorAll(".slide");
+let index = 0;
 
-        setTimeout(() => {
-            heart.remove();
-        }, 6000);
-    }
+const text = "Simran ❤️ You are my today and all my tomorrows...";
+let i = 0;
 
+function startLove() {
+    document.getElementById("start").style.display = "none";
+    showSlides();
+    typeText();
     setInterval(createHeart, 300);
+    setTimeout(startFireworks, 9000);
+}
+
+function showSlides() {
+    slides.forEach(s => s.style.opacity = 0);
+    slides[index].style.opacity = 1;
+    index = (index + 1) % slides.length;
+    setTimeout(showSlides, 3000);
+}
+
+function typeText() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeText, 80);
+    }
+}
+
+/* Hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+
+/* Fireworks */
+function startFireworks() {
+    setInterval(() => {
+        const fw = document.createElement("div");
+        fw.className = "firework";
+        fw.style.top = Math.random() * 80 + "vh";
+        fw.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 1000);
+    }, 300);
+}
 </script>
 
 </body>
