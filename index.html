@@ -4,182 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Simmy 💖</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap');
 
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-  height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  font-family: 'Poppins', sans-serif;
+body{
+  height:100vh;
+  overflow:hidden;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Poppins',sans-serif;
+  color:white;
 }
 
-/* Background Hearts */
-.heart-bg {
-  position: absolute;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-  opacity: 0;
-  z-index: 1;
+/* Floating hearts */
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:floatUp 6s linear infinite;
+}
+@keyframes floatUp{
+  from{transform:translateY(100vh);opacity:0}
+  to{transform:translateY(-10vh);opacity:1}
 }
 
-@keyframes floatUp {
-  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-  20% { opacity: 0.7; }
-  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+/* Card */
+.card{
+  width:90%;
+  max-width:420px;
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.3);
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  text-align:center;
+  z-index:2;
 }
 
-/* Slide Styles */
-.slide {
-  display: none;
-  z-index: 10;
-  padding: 25px;
-  width: 90%;
-  max-width: 450px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(15px);
-  border-radius: 25px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+.photo{
+  width:100%;
+  max-height:260px;
+  object-fit:contain;
+  border-radius:15px;
+  border:3px solid white;
+  margin-bottom:15px;
 }
 
-.active { display: block; animation: fadeIn 0.8s; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Photo Fix */
-.main-img {
-  width: 100%;
-  max-height: 280px;
-  border-radius: 15px;
-  object-fit: contain; /* Full photo visible */
-  margin-bottom: 20px;
-  border: 3px solid white;
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:2.2rem;
 }
 
-.couple-img {
-  width: 45%;
-  border-radius: 10px;
-  border: 2px solid white;
-  object-fit: contain;
+.typewriter{
+  min-height:60px;
+  margin:15px 0;
+  font-size:1.05rem;
 }
 
-h1 { font-family: 'Dancing Script', cursive; font-size: 2.2rem; margin-bottom: 10px; }
-.typewriter { font-size: 1.1rem; min-height: 50px; margin-bottom: 20px; }
-
-/* Buttons Fix */
-.buttons { 
-  display: flex; 
-  gap: 15px; 
-  justify-content: center; 
-  margin-top: 15px;
-  position: relative;
-  min-height: 50px;
+/* Buttons */
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  position:relative;
+  min-height:60px;
 }
 
-button {
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-  z-index: 100;
+button{
+  padding:12px 28px;
+  border:none;
+  border-radius:50px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
 }
 
-.btn-yes { background: #ff4e8a; color: white; box-shadow: 0 5px 15px rgba(255,78,138,0.3); }
-.btn-no { background: white; color: #ff4e8a; }
+.yes{background:#ff4e8a;color:white;}
+.no{background:white;color:#ff4e8a;}
 
+/* Love Letter */
+.letter{
+  display:none;
+  margin-top:15px;
+  padding:15px;
+  background:rgba(255,255,255,0.25);
+  border-radius:15px;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
 </style>
 </head>
 <body>
 
-<div class="slide active" id="s1">
-  <img src="https://i.ibb.co/k217dYCy/image.jpg" class="main-img">
-  <h1>Hi Simmy... 💖</h1>
-  <p class="typewriter" id="t1"></p>
-  <div class="buttons">
-    <button class="btn-yes" onclick="next(2)">Ready? ✨</button>
-  </div>
-</div>
+<div class="card">
+  <img src="your-photo.jpg" class="photo" alt="Simmy">
 
-<div class="slide" id="s2">
-  <h1>Will you be mine? 💍</h1>
-  <p class="typewriter" id="t2"></p>
-  <div class="buttons">
-    <button class="btn-yes" onclick="next(3)">YES ❤️</button>
-    <button class="btn-no" id="run-no" onmouseover="run(this)">NO 🙈</button>
-  </div>
-</div>
+  <h1>Hi Simmy 💖</h1>
+  <div class="typewriter" id="text"></div>
 
-<div class="slide" id="s3">
-  <h1>A Note For You 📜</h1>
-  <p class="typewriter" id="t3"></p>
   <div class="buttons">
-    <button class="btn-yes" onclick="next(4)">Next Surprise 🎁</button>
+    <button class="yes" onclick="showLetter()">YES ❤️</button>
+    <button class="no" id="noBtn">NO 🙈</button>
   </div>
-</div>
 
-<div class="slide" id="s4">
-  <h1>Together Forever ♾️</h1>
-  <div style="display:flex; justify-content:center; gap:10px;">
-    <img src="https://i.ibb.co/QjCb6Vzq/image.jpg" class="couple-img">
-    <img src="https://i.ibb.co/k217dYCy/image.jpg" class="couple-img">
+  <div class="letter" id="letter">
+    💌 My Love, <br><br>
+    From the moment you came into my life, everything became brighter.  
+    Your smile is my favorite sight, and your happiness is my biggest wish.  
+    No matter where life takes us, I promise to stand beside you.  
+    <br><br>
+    ❤️ Forever yours.
   </div>
-  <p id="t4" style="margin-top:20px; font-weight:bold;"></p>
 </div>
 
 <script>
-function typeWriter(elementId, text, speed = 50) {
-  let i = 0;
-  const element = document.getElementById(elementId);
-  element.innerHTML = "";
-  function type() {
-    if (i < text.length) {
-      element.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    }
+// Typewriter text
+const msg = "Will you be mine forever? Every moment with you feels magical...";
+let i = 0;
+function typeWriter(){
+  if(i < msg.length){
+    document.getElementById("text").innerHTML += msg.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
   }
-  type();
 }
+typeWriter();
 
-// Initial Text
-window.onload = () => typeWriter("t1", "I have a very special surprise for you today...");
-
-function next(id) {
-  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-  document.getElementById('s' + id).classList.add('active');
-  
-  if(id === 2) typeWriter("t2", "Har pal, har din... bas tumhara saath chahiye, Simmy.");
-  if(id === 3) typeWriter("t3", "Distance doesn't matter when two hearts are connected. You're my world!");
-  if(id === 4) typeWriter("t4", "I Love You More Than Anything! ❤️");
-}
-
-function run(btn) {
-  const x = Math.random() * (window.innerWidth - btn.offsetWidth - 50);
-  const y = Math.random() * (window.innerHeight - btn.offsetHeight - 50);
-  btn.style.position = "fixed";
-  btn.style.left = x + "px";
-  btn.style.top = y + "px";
-}
-
-// Background Hearts
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart-bg";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
+// Floating hearts
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 300);
+  setTimeout(()=>heart.remove(),6000);
+},300);
+
+// NO button runs away
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",moveNo);
+noBtn.addEventListener("touchstart",moveNo);
+
+function moveNo(){
+  const x=Math.random()*80;
+  const y=Math.random()*70;
+  noBtn.style.position="fixed";
+  noBtn.style.left=x+"vw";
+  noBtn.style.top=y+"vh";
+}
+
+// Show love letter
+function showLetter(){
+  document.getElementById("letter").style.display="block";
+}
 </script>
 
 </body>
