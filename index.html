@@ -3,164 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Simmy 💖</title>
-
+<title>For My Simmy 💖</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{
-  height:100vh;
-  overflow:hidden;
-  background: linear-gradient(135deg,#ff4e8a,#ff6ec7,#b86bff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Floating hearts */
-.heart{
-  position:absolute;
-  font-size:20px;
-  animation:float 8s linear infinite;
-  opacity:.8;
-}
-@keyframes float{
-  0%{transform:translateY(100vh) scale(.5)}
-  100%{transform:translateY(-10vh) scale(1.2)}
+/* Floating Hearts Background */
+.heart-bg {
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0;
+  z-index: 1;
 }
 
-/* Container */
-.container{z-index:2;padding:20px;}
-
-.photo{
-  width:140px;height:140px;border-radius:50%;
-  object-fit:cover;border:4px solid white;
-  box-shadow:0 0 20px pink;margin-bottom:15px;
+@keyframes floatUp {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.7; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
 }
 
-h1{
-  font-size:2rem;font-weight:900;
-  text-shadow:0 0 10px white,0 0 20px pink;
-  animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.05)}
+/* Slide Styles */
+.slide {
+  display: none;
+  z-index: 10;
+  padding: 25px;
+  width: 90%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  animation: scaleIn 0.5s ease-out;
 }
 
-.buttons{margin-top:25px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
-button{
-  padding:14px 28px;font-size:1.2rem;border:none;border-radius:30px;font-weight:bold;cursor:pointer;
-}
-#yes{background:linear-gradient(45deg,#ff4e8a,#ff9bd6);color:white;box-shadow:0 0 15px pink;}
-#no{background:#fff;color:#ff4e8a;position:relative;}
+.active { display: block; }
 
-/* Celebration */
-#celebration{
-  display:none;position:absolute;inset:0;
-  background:rgba(0,0,0,.3);
-  backdrop-filter:blur(5px);
-  align-items:center;justify-content:center;flex-direction:column;
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
-#celebration h2{font-size:2.2rem;font-weight:900;margin-bottom:20px;}
-.gif{width:150px;border-radius:15px;margin:10px;}
 
-/* Heart rain */
-.rain{position:absolute;top:-20px;animation:rain 4s linear infinite;}
-@keyframes rain{to{transform:translateY(110vh)}}
+/* Elements */
+.main-img {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
 
-/* Fireworks */
-.firework{
-  position:absolute;
-  width:6px;height:6px;border-radius:50%;
-  background:white;
-  animation:explode 1s ease-out forwards;
+h1 { font-family: 'Dancing Script', cursive; font-size: 2.2rem; margin-bottom: 15px; }
+p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px; }
+
+.buttons { display: flex; gap: 15px; justify-content: center; margin-top: 10px; }
+
+button {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
 }
-@keyframes explode{
-  to{transform:translate(var(--x),var(--y));opacity:0;}
-}
+
+.btn-yes { background: #ff4e8a; color: white; box-shadow: 0 5px 15px rgba(255, 78, 138, 0.4); }
+.btn-no { background: white; color: #ff4e8a; }
+
+.couple-box { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+.couple-img { width: 120px; height: 120px; border-radius: 15px; border: 3px solid white; object-fit: cover; }
+
 </style>
 </head>
 <body>
 
-<div class="container" id="main">
-  <img src="your-photo.jpg" class="photo" alt="Simmy">
-  <h1>SIMMY, WILL YOU BE MINE FOREVER? 💖</h1>
+<div class="slide active" id="s1">
+  <img src="https://i.ibb.co/k217dYCy/image.jpg" class="main-img">
+  <h1>Hi Simmy... 💖</h1>
+  <p>I have a very important question to ask you today. Are you ready?</p>
   <div class="buttons">
-    <button id="yes">YES ❤️</button>
-    <button id="no">NO 🙈</button>
+    <button class="btn-yes" onclick="next(2)">I'm Ready! ✨</button>
   </div>
 </div>
 
-<div id="celebration">
-  <h2>I LOVE YOU ❤️</h2>
-  <div>
-    <img class="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
-    <img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+<div class="slide" id="s2">
+  <h1>Will you be mine forever? 💍</h1>
+  <p>Every moment with you feels like a dream I never want to wake up from.</p>
+  <div class="buttons">
+    <button class="btn-yes" onclick="next(3)">YES ❤️</button>
+    <button class="btn-no" id="run-no" onmouseover="run(this)" onclick="run(this)">NO 🙈</button>
   </div>
+</div>
+
+<div class="slide" id="s3">
+  <h1>Do you really love me? 🥺</h1>
+  <p>Just making sure... because my heart is already yours!</p>
+  <div class="buttons">
+    <button class="btn-yes" onclick="next(4)">I LOVE YOU! ❤️</button>
+    <button class="btn-no" id="run-no2" onmouseover="run(this)" onclick="run(this)">NO 🙊</button>
+  </div>
+</div>
+
+<div class="slide" id="s4">
+  <h1>A Note For You 📜</h1>
+  <p><i>"Distance means nothing when someone means everything. Even though we are online right now, one day I'll be right there holding your hand. You are my world, Simmy."</i></p>
+  <button class="btn-yes" onclick="next(5)">Next Surprise 🎁</button>
+</div>
+
+<div class="slide" id="s5">
+  <h1>I Love You Forever! ♾️</h1>
+  <div class="couple-box">
+    <img src="https://i.ibb.co/QjCb6Vzq/image.jpg" class="couple-img" alt="You">
+    <img src="https://i.ibb.co/k217dYCy/image.jpg" class="couple-img" alt="Simmy">
+  </div>
+  <h2 style="margin-top:20px; font-family:'Dancing Script'">You & Me Together</h2>
+  <p>Sending you a million virtual hugs! 🤗❤️</p>
 </div>
 
 <script>
-// Floating hearts
-const emojis=["❤️","💖","💘","💝","💕","💞","💓"];
-setInterval(()=>{
-  const heart=document.createElement("div");
-  heart.className="heart";
-  heart.innerText=emojis[Math.floor(Math.random()*emojis.length)];
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(15+Math.random()*25)+"px";
+// Heart Background Effect
+const emojis = ["❤️", "💖", "💕", "🌸", "✨"];
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart-bg";
+  heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
   document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),8000);
-},300);
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 300);
 
-// NO button runs away
-const noBtn=document.getElementById("no");
-noBtn.addEventListener("touchstart",moveNo);
-noBtn.addEventListener("mouseover",moveNo);
-function moveNo(){
-  const x=Math.random()*80;
-  const y=Math.random()*80;
-  noBtn.style.position="absolute";
-  noBtn.style.left=x+"vw";
-  noBtn.style.top=y+"vh";
+// Slide Navigation
+function next(id) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  document.getElementById('s' + id).classList.add('active');
 }
 
-// YES click celebration
-document.getElementById("yes").onclick=()=>{
-  document.getElementById("main").style.display="none";
-  document.getElementById("celebration").style.display="flex";
-  heartRain();
-  fireworks();
-};
-
-// Heart rain
-function heartRain(){
-  setInterval(()=>{
-    const h=document.createElement("div");
-    h.className="rain";
-    h.innerText="💖";
-    h.style.left=Math.random()*100+"vw";
-    h.style.fontSize=(15+Math.random()*25)+"px";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),4000);
-  },150);
-}
-
-// Fireworks effect
-function fireworks(){
-  setInterval(()=>{
-    for(let i=0;i<30;i++){
-      const fw=document.createElement("div");
-      fw.className="firework";
-      fw.style.left=Math.random()*100+"vw";
-      fw.style.top=Math.random()*100+"vh";
-      fw.style.setProperty('--x',(Math.random()*200-100)+'px');
-      fw.style.setProperty('--y',(Math.random()*200-100)+'px');
-      document.body.appendChild(fw);
-      setTimeout(()=>fw.remove(),1000);
-    }
-  },800);
+// Running Button Logic
+function run(btn) {
+  const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+  btn.style.position = "fixed";
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
 }
 </script>
 
