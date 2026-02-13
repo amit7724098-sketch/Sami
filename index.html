@@ -3,202 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simran ❤️ Amit</title>
+<title>Valentine 💖</title>
 
 <style>
-body {
-    margin: 0;
-    background: black;
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    text-align: center;
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{
+  height:100vh;
+  overflow:hidden;
+  background: linear-gradient(135deg,#ff4e8a,#ff6ec7,#b86bff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
 }
 
-/* Cinematic Intro */
-#intro {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, #ff4e8b, black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    cursor: pointer;
-    animation: pulse 2s infinite;
+/* Floating hearts */
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:float 8s linear infinite;
+  opacity:.8;
+}
+@keyframes float{
+  0%{transform:translateY(100vh) scale(.5)}
+  100%{transform:translateY(-10vh) scale(1.2)}
 }
 
-@keyframes pulse {
-    0%,100% { opacity: 0.7; }
-    50% { opacity: 1; }
+/* Main container */
+.container{
+  z-index:2;
+  padding:20px;
 }
 
-/* Slides */
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 2s;
+/* Main text */
+h1{
+  font-size:2rem;
+  font-weight:900;
+  text-shadow:0 0 10px white,0 0 20px pink;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
 }
 
-/* Typing message */
-#message {
-    position: absolute;
-    bottom: 18%;
-    width: 100%;
-    font-size: 1.8em;
-    border-right: 3px solid white;
-    white-space: nowrap;
-    overflow: hidden;
+/* Buttons */
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+button{
+  padding:14px 28px;
+  font-size:1.2rem;
+  border:none;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+#yes{
+  background:linear-gradient(45deg,#ff4e8a,#ff9bd6);
+  color:white;
+  box-shadow:0 0 15px pink;
+}
+#yes:active{transform:scale(.95)}
+
+#no{
+  background:#fff;
+  color:#ff4e8a;
+  position:relative;
 }
 
-/* Counter */
-#counter {
-    position: absolute;
-    top: 10%;
-    width: 100%;
-    font-size: 1.2em;
-    opacity: 0.8;
+/* Celebration */
+#celebration{
+  display:none;
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.3);
+  backdrop-filter:blur(5px);
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+#celebration h2{
+  font-size:2.2rem;
+  font-weight:900;
+  text-shadow:0 0 10px white;
+  margin-bottom:20px;
+}
+.gif{
+  width:160px;
+  border-radius:20px;
+  margin:10px;
 }
 
-/* Final Screen */
-#final {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+/* Heart rain */
+.rain{
+  position:absolute;
+  top:-20px;
+  animation:rain 4s linear infinite;
 }
-
-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border: none;
-    background: #ff4e8b;
-    color: white;
-    border-radius: 30px;
-    cursor: pointer;
-}
-
-/* Hearts */
-.heart {
-    position: absolute;
-    bottom: -10px;
-    color: #ff4e8b;
-    animation: floatUp 6s linear infinite;
-}
-
-@keyframes floatUp {
-    to { transform: translateY(-110vh); opacity: 0; }
-}
-
-/* Fireworks */
-.firework {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: white;
-    border-radius: 50%;
-    animation: explode 1s ease-out forwards;
-}
-
-@keyframes explode {
-    to { transform: scale(20); opacity: 0; }
+@keyframes rain{
+  to{transform:translateY(110vh)}
 }
 </style>
 </head>
-
 <body>
 
-<div id="intro" onclick="startStory()">Tap to Begin Our Story ❤️</div>
+<div class="container" id="main">
+  <h1>PREETI, WILL YOU BE MY VALENTINE?</h1>
+  <div class="buttons">
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 🙈</button>
+  </div>
+</div>
 
-<img class="slide" src="couple.jpg">
-<img class="slide" src="simran.jpg">
-<img class="slide" src="note.jpg">
-
-<div id="counter"></div>
-<div id="message"></div>
-
-<div id="final">
-    <h1>Simran ❤️</h1>
-    <h2>Will you stay with me forever?</h2>
-    <button onclick="alert('You just made me the happiest person ❤️')">YES ❤️</button>
+<div id="celebration">
+  <h2>I KNEW YOU LOVE ME 💖</h2>
+  <div>
+    <img class="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+    <img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+    <img class="gif" src="https://media.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif">
+  </div>
 </div>
 
 <script>
-const slides = document.querySelectorAll(".slide");
-let index = 0;
+// floating hearts
+const emojis=["❤️","💖","💘","💝","💕","💞","💓"];
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(15+Math.random()*25)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),8000);
+},300);
 
-const text = "You are my today, my tomorrow, and my forever...";
-let i = 0;
+// NO button runs away
+const noBtn=document.getElementById("no");
+noBtn.addEventListener("touchstart",moveNo);
+noBtn.addEventListener("mouseover",moveNo);
 
-/* Love Counter (change date) */
-const startDate = new Date("2024-01-01");
-
-function updateCounter() {
-    const now = new Date();
-    const diff = Math.floor((now - startDate) / (1000*60*60*24));
-    document.getElementById("counter").innerText =
-        "Together for " + diff + " beautiful days ❤️";
-}
-setInterval(updateCounter, 1000);
-
-function startStory() {
-    document.getElementById("intro").style.display = "none";
-    showSlides();
-    typeText();
-    setInterval(createHeart, 300);
-    setTimeout(startFireworks, 10000);
-    setTimeout(showFinal, 14000);
-}
-
-function showSlides() {
-    slides.forEach(s => s.style.opacity = 0);
-    slides[index].style.opacity = 1;
-    index = (index + 1) % slides.length;
-    setTimeout(showSlides, 3500);
+function moveNo(){
+  const x=Math.random()*80;
+  const y=Math.random()*80;
+  noBtn.style.position="absolute";
+  noBtn.style.left=x+"vw";
+  noBtn.style.top=y+"vh";
 }
 
-function typeText() {
-    if (i < text.length) {
-        document.getElementById("message").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeText, 70);
-    }
-}
+// YES click celebration
+document.getElementById("yes").onclick=()=>{
+  document.getElementById("main").style.display="none";
+  document.getElementById("celebration").style.display="flex";
+  heartRain();
+};
 
-/* Hearts */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-}
-
-/* Fireworks */
-function startFireworks() {
-    setInterval(() => {
-        const fw = document.createElement("div");
-        fw.className = "firework";
-        fw.style.top = Math.random() * 80 + "vh";
-        fw.style.left = Math.random() * 100 + "vw";
-        document.body.appendChild(fw);
-        setTimeout(() => fw.remove(), 1000);
-    }, 300);
-}
-
-/* Final screen */
-function showFinal() {
-    document.getElementById("final").style.display = "flex";
+// heart rain
+function heartRain(){
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="rain";
+    h.innerText="💖";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(15+Math.random()*25)+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4000);
+  },150);
 }
 </script>
 
