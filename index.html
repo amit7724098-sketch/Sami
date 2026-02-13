@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine 💖</title>
+<title>For Simmy 💖</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
@@ -30,16 +30,17 @@ body{
   100%{transform:translateY(-10vh) scale(1.2)}
 }
 
-/* Main container */
-.container{
-  z-index:2;
-  padding:20px;
+/* Container */
+.container{z-index:2;padding:20px;}
+
+.photo{
+  width:140px;height:140px;border-radius:50%;
+  object-fit:cover;border:4px solid white;
+  box-shadow:0 0 20px pink;margin-bottom:15px;
 }
 
-/* Main text */
 h1{
-  font-size:2rem;
-  font-weight:900;
+  font-size:2rem;font-weight:900;
   text-shadow:0 0 10px white,0 0 20px pink;
   animation:pulse 1.5s infinite;
 }
@@ -48,74 +49,44 @@ h1{
   50%{transform:scale(1.05)}
 }
 
-/* Buttons */
-.buttons{
-  margin-top:30px;
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
+.buttons{margin-top:25px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
 button{
-  padding:14px 28px;
-  font-size:1.2rem;
-  border:none;
-  border-radius:30px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.3s;
+  padding:14px 28px;font-size:1.2rem;border:none;border-radius:30px;font-weight:bold;cursor:pointer;
 }
-#yes{
-  background:linear-gradient(45deg,#ff4e8a,#ff9bd6);
-  color:white;
-  box-shadow:0 0 15px pink;
-}
-#yes:active{transform:scale(.95)}
-
-#no{
-  background:#fff;
-  color:#ff4e8a;
-  position:relative;
-}
+#yes{background:linear-gradient(45deg,#ff4e8a,#ff9bd6);color:white;box-shadow:0 0 15px pink;}
+#no{background:#fff;color:#ff4e8a;position:relative;}
 
 /* Celebration */
 #celebration{
-  display:none;
-  position:absolute;
-  inset:0;
+  display:none;position:absolute;inset:0;
   background:rgba(0,0,0,.3);
   backdrop-filter:blur(5px);
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
+  align-items:center;justify-content:center;flex-direction:column;
 }
-#celebration h2{
-  font-size:2.2rem;
-  font-weight:900;
-  text-shadow:0 0 10px white;
-  margin-bottom:20px;
-}
-.gif{
-  width:160px;
-  border-radius:20px;
-  margin:10px;
-}
+#celebration h2{font-size:2.2rem;font-weight:900;margin-bottom:20px;}
+.gif{width:150px;border-radius:15px;margin:10px;}
 
 /* Heart rain */
-.rain{
+.rain{position:absolute;top:-20px;animation:rain 4s linear infinite;}
+@keyframes rain{to{transform:translateY(110vh)}}
+
+/* Fireworks */
+.firework{
   position:absolute;
-  top:-20px;
-  animation:rain 4s linear infinite;
+  width:6px;height:6px;border-radius:50%;
+  background:white;
+  animation:explode 1s ease-out forwards;
 }
-@keyframes rain{
-  to{transform:translateY(110vh)}
+@keyframes explode{
+  to{transform:translate(var(--x),var(--y));opacity:0;}
 }
 </style>
 </head>
 <body>
 
 <div class="container" id="main">
-  <h1>PREETI, WILL YOU BE MY VALENTINE?</h1>
+  <img src="your-photo.jpg" class="photo" alt="Simmy">
+  <h1>SIMMY, WILL YOU BE MINE FOREVER? 💖</h1>
   <div class="buttons">
     <button id="yes">YES ❤️</button>
     <button id="no">NO 🙈</button>
@@ -123,16 +94,15 @@ button{
 </div>
 
 <div id="celebration">
-  <h2>I KNEW YOU LOVE ME 💖</h2>
+  <h2>I LOVE YOU ❤️</h2>
   <div>
     <img class="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
     <img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
-    <img class="gif" src="https://media.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif">
   </div>
 </div>
 
 <script>
-// floating hearts
+// Floating hearts
 const emojis=["❤️","💖","💘","💝","💕","💞","💓"];
 setInterval(()=>{
   const heart=document.createElement("div");
@@ -148,7 +118,6 @@ setInterval(()=>{
 const noBtn=document.getElementById("no");
 noBtn.addEventListener("touchstart",moveNo);
 noBtn.addEventListener("mouseover",moveNo);
-
 function moveNo(){
   const x=Math.random()*80;
   const y=Math.random()*80;
@@ -162,9 +131,10 @@ document.getElementById("yes").onclick=()=>{
   document.getElementById("main").style.display="none";
   document.getElementById("celebration").style.display="flex";
   heartRain();
+  fireworks();
 };
 
-// heart rain
+// Heart rain
 function heartRain(){
   setInterval(()=>{
     const h=document.createElement("div");
@@ -175,6 +145,22 @@ function heartRain(){
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),4000);
   },150);
+}
+
+// Fireworks effect
+function fireworks(){
+  setInterval(()=>{
+    for(let i=0;i<30;i++){
+      const fw=document.createElement("div");
+      fw.className="firework";
+      fw.style.left=Math.random()*100+"vw";
+      fw.style.top=Math.random()*100+"vh";
+      fw.style.setProperty('--x',(Math.random()*200-100)+'px');
+      fw.style.setProperty('--y',(Math.random()*200-100)+'px');
+      document.body.appendChild(fw);
+      setTimeout(()=>fw.remove(),1000);
+    }
+  },800);
 }
 </script>
 
